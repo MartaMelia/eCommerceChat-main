@@ -1,0 +1,71 @@
+<div class="chat-start-container">
+  <div class="back-arrow" (click)="backClicked()">
+    <i class="bi bi-arrow-left-circle"></i>
+  </div>
+  <div class="chat-component">
+    <div class="dialog-chat w-100" #chatContainer>
+      <div class="chat-container">
+        <div class="container">
+          <div>
+            <div class="chat-content" *ngFor="let chat of chatList">
+              <div class="assistant-div" *ngIf="chat.isChat">
+                <img
+                  src="../../../assets/images/chat-icon.png"
+                  class="assistant-photo"
+                  alt="Assistant"
+                />
+                <div class="assistant-text">
+                  <p
+                    id="assistant-text"
+                    class="m-0"
+                    [innerHTML]="formatResponse(chat.text)"
+                  ></p>
+                </div>
+              </div>
+              <div class="user-div" *ngIf="!chat.isChat">
+                <p id="user-question" class="user-question">{{ chat.text }}</p>
+                <img
+                  src="../../../assets/images/user-icon.png"
+                  alt="User"
+                  class="user-photo"
+                />
+              </div>
+            </div>
+            <div class="assistant-div align-items-center" *ngIf="isLoading">
+              <img
+                src="../../../assets/images/chat-icon.png"
+                class="assistant-photo"
+                alt="Assistant"
+              />
+              <div class="ms-4">
+                <div class="dot-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="pb-2">
+        <div class="container">
+          <form [formGroup]="chatForm">
+            <div class="textarea-container">
+              <div class="user-input">
+                <div class="text-div">
+                  <textarea
+                    placeholder="Message"
+                    #textareaElement
+                    formControlName="text"
+                    (ngModelChange)="adjustTextareaHeight()"
+                    (keydown)="onEnterPressed($event)"
+                  ></textarea>
+                  <button type="submit" (click)="send()">
+                    <i class="bi bi-send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

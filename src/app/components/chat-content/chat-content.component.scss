@@ -1,0 +1,163 @@
+.chat-start-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../../../assets/images/6324579.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: color-burn;
+  .back-arrow {
+    position: absolute;
+    padding: 0 0.36rem;
+    border-radius: 50%;
+    top: 14px;
+    left: 14px;
+    cursor: pointer;
+    z-index: 111;
+    .bi-arrow-left-circle {
+      font-size: 24px;
+      color: #d8d8d8;
+    }
+    &:hover .bi-arrow-left-circle {
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dialog-chat .container {
+    width: 50%;
+  }
+  footer .container {
+    width: 50%;
+  }
+  .user-question,
+  .assistant-text {
+    max-width: 100%;
+  }
+}
+
+.chat-component {
+  height: calc(100vh - 2.5rem);
+  border-radius: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 2rem);
+  margin: 2.5rem auto 0 auto;
+  .dialog-chat {
+    margin-bottom: 5rem;
+    overflow-y: scroll;
+    .container {
+      padding: 0;
+      .chat-content {
+        font-weight: 400 !important;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 0.2rem !important;
+      background-color: #51368d !important; /* or add it to the track */
+      border-radius: 1rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: #9665ff !important;
+    }
+  }
+
+  .assistant-photo,
+  .user-photo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .user-div,
+  .assistant-div {
+    display: flex;
+  }
+  .user-question,
+  .assistant-text {
+    padding: 0.7rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #eeeeee;
+  }
+  .user-div {
+    justify-content: end;
+    margin: 1.5rem 0 1.5rem 0rem;
+    .user-question {
+      margin-right: 0.5rem;
+      margin-left: 43px;
+    }
+  }
+  .assistant-div {
+    margin: 1.5rem 3rem 1.5rem 0;
+    .assistant-text {
+      margin-left: 0.5rem;
+    }
+  }
+
+  footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 0 0 1rem 1rem;
+    .container {
+      padding: 0.5rem 0;
+      .textarea-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .user-input {
+          width: 100%;
+          display: flex;
+          .text-div {
+            background-color: white;
+            position: relative;
+            border-radius: 1.8rem;
+            border: 0.1rem rgba(172, 172, 172, 0.8) solid;
+            width: 100%;
+            padding: 0.8rem 5rem 0.5rem 2rem;
+            textarea {
+              border: none;
+              width: 100%;
+              height: 28px;
+              max-height: 6rem;
+              outline: none;
+              resize: none;
+              &:focus {
+                border-color: rebeccapurple;
+              }
+              &::-webkit-scrollbar {
+                width: 0.2rem !important;
+                background-color: #eeeeee !important; /* or add it to the track */
+                border-radius: 1rem;
+              }
+              &::-webkit-scrollbar-thumb {
+                border-radius: 1rem;
+                background: #7e7e7e !important;
+              }
+            }
+            button {
+              position: absolute;
+              right: .4rem;
+              top: 50%;
+              transform: translateY(-50%);
+              margin: 0 0 0 1rem;
+              cursor: pointer;
+              border: none;
+              background-color: #855AE3;
+              padding: 0.5rem 0.8rem;
+              border-radius: 50%;
+              i {
+                font-size: 22px;
+                color: rgba(255, 255, 255, 0.8);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
